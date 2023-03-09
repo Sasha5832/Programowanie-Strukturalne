@@ -135,6 +135,28 @@ printf("rozwjazanie jest x=%f y=%f",x,y);
 return 0;
 }
 
+4) !
+
+#include<stdio.h>
+#include<math.h>
+
+
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int s=1;
+    int i;
+    for(i=2;i<=n;i++)
+    {
+        s=s*i;
+
+    }
+    printf("%d!=%d",n,s);
+    return 0;
+}
+
 
 
 
