@@ -160,3 +160,125 @@ int main()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+#include<stdio.h>
+#include<math.h>
+
+int abs(int x)
+{
+    if(x>0)
+    {
+        return -x;
+    }
+    return x;
+}
+int fact(int x)
+{
+    int temp =1;
+    for (int i=2;i<=x;i++)
+    {
+        temp*=i;
+    }
+    return temp;
+}
+int fact_recur(int x)
+{
+    if(x==0||x==1)
+    {
+        return 1;
+    }
+    return x*fact_recur(x-1);
+}
+float dwaDoX(int x)
+{
+    float wyn=1;
+    if(x>=0)
+    {
+        for(int i=1;i<=x;i++)
+        {
+            wyn*=2;
+        }
+    }
+    else
+    {
+        for(int i=-1;i>=x;i--)
+        {
+            wyn/=2;
+        }
+    }
+    return wyn;
+}
+float dwaDoX_recur(int x)
+{
+    if(x==0)
+    {
+        return 1;
+    }
+    if(x>0)
+    {
+        return 2*dwaDoX_recur(x-1);
+    }
+    if(x<0)
+    {
+        return 1/dwaDoX_recur(-x); /**< albo return dwaDoX_recur(x+1)/2; */
+    }
+
+}
+int mads (unsigned int n)
+{
+    int i=0;
+    while(i*i<=n)
+    {
+        i++;
+    }
+    return i-1;
+}
+int czyKwadrat (int n, int m)
+{
+    int wynik=n*m;
+    for(int i=0;i<500;i++)
+    {
+        if(n*m==i*i) return 1;
+    }
+    return 0;
+}
+int main()
+{
+    printf("|%i|=%i\n",-727,abs(-727));
+    printf("%i!=%i\n",2,fact(2));
+    printf("%i!=%i\n",3,fact_recur(3));
+    printf("%i^2=%f\n",5,dwaDoX(5));
+    printf("%i^2=%f\n",5,dwaDoX_recur(5));
+    printf("Pierwiastek %i zaokraglony w dol to: %i\n",7,mads(7));
+
+    for(int i=1;i<1000;i++)
+    {
+        for(int j=1;j<1000;j++)
+        {
+            if(czyKwadrat(i,j))
+            {
+                if(czyKwadrat(i+1,j+1))
+                {
+                    if(i!=j)
+                    {
+                        printf("%d, %d\n", i,j);
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    return 0;
+}
