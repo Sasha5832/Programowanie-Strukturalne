@@ -1,3 +1,5 @@
+2.2.10
+
 #include<stdio.h>
 #include<math.h>
 
@@ -35,3 +37,260 @@ int main()
     printf("wynik: %d\n",suma(n));
     return 0;
 }
+
+
+
+
+#include<stdio.h>
+#include<math.h>
+// zadanie 2.2.17||19
+void zlicz(int x)
+{
+    static int ile=0;
+    ile=ile+x;
+    printf("Funkcja zostala wywolana na argumencie %d razy\n",ile);
+}
+
+int main()
+{
+    zlicz(5);
+    zlicz(7);
+    zlicz(8);
+    return 0;
+}
+
+
+
+
+#include<stdio.h>
+#include<math.h>
+// zadanie 2.2.17||19
+void zlicz(int x)
+{
+    static int ile=0;
+    ile=ile+x;
+    printf("Funkcja zostala wywolana na argumencie %d razy\n",ile);
+}
+
+int main()
+{
+    zlicz(5);
+    zlicz(7);
+    zlicz(8);
+    return 0;
+}
+
+#include<stdio.h>
+#include<math.h>
+// zadanie 2.2.21
+
+int wyraz(int n)
+{
+    if (n==0)
+        return 1;
+    return 2* wyraz(n-1)+5;
+}
+int main()
+{
+
+    int n;
+    for(n=0;n<10;n++)
+    printf("wynik: %d\n",wyraz(n));
+
+    return 0;
+}
+
+
+
+
+
+#include<stdio.h>
+#include<math.h>
+// zadanie 2.2.22
+
+int wyraz(int n)
+{
+    if (n==0||n==1)
+        return 1;
+    return wyraz(n-1)+2*wyraz(n-2)+3;
+}
+int main()
+{
+
+    int n;
+    for(n=0;n<10;n++)
+    printf("wynik: %d\n",wyraz(n));
+
+    return 0;
+}
+
+
+
+
+#include<stdio.h>
+#include<math.h>
+// zadanie 2.2.21
+
+int wyraz(int n)
+{
+    if (n==0||n==1)
+        return 1;
+    return wyraz(n-1)+ wyraz(n-2);
+}
+int main()
+{
+
+    int n;
+    for(n=0;n<10;n++)
+    printf("wynik: %d\n",wyraz(n));
+
+    return 0;
+}
+
+
+#include<stdio.h>
+#include<math.h>
+// zadanie ilorazy
+
+int wyraz(int n)
+{
+    if (n==0||n==1)
+        return 1;
+    return wyraz(n-1)+ wyraz(n-2);
+}
+void ilorazy(int n)
+{
+    int i;
+    for(i=0;i<n;i++)
+    {
+        printf("a_%d/a_%d = %f\n",i+1,i,(float)(wyraz(i+1))/wyraz(i));
+    }
+}
+int main()
+{
+
+    ilorazy(20);
+    printf("\n Zlota liczba: %f",(1+sqrt(5))/2);
+
+    return 0;
+}
+
+
+
+
+
+
+
+#include<stdio.h>
+#include<math.h>
+// zadanie 2.2.24
+
+int wyraz(int n)
+{
+    int wynik=0;
+    if (n==0||n==1)
+        return 1;
+    for (int i=0;i<n;i++)
+    {
+        wynik=wynik+wyraz(i);
+    }
+    return wynik;
+}
+int main()
+{
+
+    int n;
+    for(n=0;n<10;n++)
+    printf("wynik: %d\n",wyraz(n));
+    return 0;
+}
+
+
+
+
+
+#include<stdio.h>
+#include<math.h>
+// zadanie 2.2.25
+
+int wyraz(int n)
+{
+    int wynik=0;
+    if (n==0||n==1)
+        return 1;
+    if (n%2==0)
+    {
+        return wyraz(n-1)+n;
+    }
+
+    return wyraz(n-1)*n;
+}
+int main()
+{
+
+    int n;
+    for(n=0;n<10;n++)
+    printf("wynik: %d\n",wyraz(n));
+    return 0;
+}
+
+
+
+
+
+
+
+
+#include<stdio.h>
+#include<math.h>
+// zadanie 2.2.26
+
+int wyraz(int n)
+{
+    int wynik=0;
+    if (n<3)
+        return 1;
+    if(n%3==0)
+    {
+        return wyraz(n-1)+wyraz(n-2);
+    }
+    if(n%3==1)
+    {
+        return 5*wyraz(n-1)+4;
+    }
+    return wyraz(n-1)+1;
+}
+int main()
+{
+
+    int n;
+    for(n=0;n<10;n++)
+    printf("wynik: %d\n",wyraz(n));
+    return 0;
+}
+
+
+
+
+
+#include<stdio.h>
+#include<math.h>
+// zadanie 2.2.27
+
+int wyraz(int n,int m)
+{
+   if(m==0)
+    return n;
+   if(n==0)
+    return m;
+   return wyraz(n-1,m)+wyraz(n,m-1)+wyraz(n-1,m-1);
+}
+int main()
+{
+
+    printf("wynik: %d\n",wyraz(1,3));
+    return 0;
+}
+
+
+
