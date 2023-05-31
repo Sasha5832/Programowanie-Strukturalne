@@ -1,0 +1,73 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<wchar.h>
+
+void wypisz2(int **t, unsigned int n, unsigned int m)
+{
+    int i,j;
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+            printf("%d\t",t[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+void wczytaj (int** t, unsigned int n, unsigned int m)
+{
+    int i,j;
+        for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+            scanf("%d",&t[i][j]);
+        }
+    }
+}
+int** alokuj(unsigned int n, unsigned int m)
+{
+     int **t=malloc(n*sizeof(int*));
+     int i;
+     for(i=0;i<n;i++)
+     {
+         t[i]=malloc(m*sizeof(int));
+     }
+     return t;
+}
+
+void zamiana(int **pirwsza, int **druga, unsigned int n, unsigned int m)
+{
+    int i,j;
+    int temp;
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+            temp=druga[i][j];
+            druga[i][j]=pirwsza[i][j];
+            pirwsza[i][j]=temp;
+        }
+    }
+}
+int main()
+{
+    int** tablica = alokuj(2,3);
+    int** tab = alokuj(2,3);
+    wczytaj(tablica,2,3);
+    printf("\n");
+    wypisz2(tablica,2,3);
+    wczytaj(tab,2,3);
+    printf("\n");
+    wypisz2(tab,2,3);
+    zamiana(tablica, tab, 2, 3);
+    printf("\n");
+    wypisz2(tablica,2,3);
+    wypisz2(tab,2,3);
+
+}
+
+
