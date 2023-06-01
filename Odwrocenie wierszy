@@ -1,0 +1,29 @@
+
+
+void odwroc_wiersze2(unsigned int n, unsigned int m, int t[][m]){
+
+      int i,j,pom;
+
+for(i=0;i<n;i++)
+
+{
+
+    for(j=0;j<m/2;j++)
+
+{
+
+    pom=t[i][j];
+
+   t[i][j]=t[i][m-1-j];
+
+   t[i][m-1-j]=pom;
+
+}
+
+}
+
+}
+
+
+
+4a z zajęć?
